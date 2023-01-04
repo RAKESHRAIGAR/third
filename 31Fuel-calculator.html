@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan EMI calculator</title>
+    <style>
+        input[type=text], select{
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid rgb(48, 192, 67);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        label{
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input[type=submit]{
+            width: 15%;
+            background-color: rgb(101, 252, 41);
+            color: rgb(240, 245, 244);
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input[type=submit]:hover{
+            background-color: rgb(247, 41, 34);
+        }
+        div {
+            border-radius: 9px;
+            background-color: rgb(23, 177, 126);
+            padding: 20px;
+        }
+       
+      
+    </style>
+</head>
+<body>
+    <center>
+    <h1>FUEL CALCULATOR</h1>
+    <div>
+        
+        <form action="" onsubmit="return false">
+            <label for="km">Enter Total Kilometer :</label>
+            <input type="text" id="totalkm">
+            <br>
+            <label for="milage">Enter Vehicle Milage  :</label>
+            <input type="text" id="milage">
+            <br> 
+            <label for="fuelprice">Enter Fuel Price :</label>
+            <input type="text" id="fuel_price">
+            <br>
+            <input type="submit" value="Calculate" onclick="calculate(totalkm.value,milage.value,fuel_price.value);"/>
+        </form>
+    </div>
+    <label for="output" id="demo"></label>
+    <script>
+        function calculate(a,b,c){
+          let totalkm = parseInt(a);
+          let milage = parseInt(b);
+          let fuel_price = parseFloat(c);
+
+          let x = ((totalkm/milage) * fuel_price);
+          let y = totalkm/milage;
+          let Total_cost = x.toFixed(2);
+          let total_fule = y.toFixed(2);
+          /*let Total_cost = ((totalkm/milage) * fuel_price).toFixed(2);
+          let total_fule = totalkm/milage.toFixed(2);*/
+          document.getElementById("demo").innerHTML= "Fuel needed :" + "<b>" + total_fule + "Liters" + "</b>" 
+          + "<br>" + "Fuel cost :" + Total_cost + " Rs" + "</b>"; 
+        }
+    </script>
+    </center>
+</body>
+</html>
